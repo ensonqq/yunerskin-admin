@@ -9,7 +9,7 @@ const localApiRoot = 'http://localhost:3001'
 const devApiRoot = 'https://api-dev.yunerskin.com'
 const prodApiRoot = 'https://api.yunerskin.com'
 
-const baseURL = hostname === 'd8ghkoiw1.yunerskin.com' ? prodApiRoot : hostname === 'admin-dev.yunerskin.com' ? devApiRoot : localApiRoot
+const baseURL = hostname === 'admin.yunerskin.com' ? prodApiRoot : hostname === 'admin-dev.yunerskin.com' ? devApiRoot : localApiRoot
 
 // api instance with interceptors
 const api = axios.create({ baseURL })
