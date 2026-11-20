@@ -315,56 +315,44 @@
             <div class="row">
               <label class="col-sm-3 col-form-label">收貨人</label>
               <div class="col-sm-7">
-                <ValidationProvider name="recipient" rules="required" v-slot="{ passed, failed }">
-                  <fg-input type="text"
-                            :error="failed ? '不能留空': null"
-                            :hasSuccess="passed"
-                            name="recipient"
-                            v-model="order.recipient">
-                  </fg-input>
-                </ValidationProvider>
+                <fg-input type="text"
+                          name="recipient"
+                          v-model="order.recipient">
+                </fg-input>
               </div>
             </div>
 
             <div class="row">
               <label class="col-sm-3 col-form-label">送貨日</label>
               <div class="col-sm-7">
-                <ValidationProvider name="deliveryDay" rules="required" v-slot="{ passed, failed }">
-                  <fg-input type="text"
-                            :error="failed ? '不能留空': null"
-                            :hasSuccess="passed"
-                            name="deliveryDay">
-                    <!--                    <el-date-picker v-model="order.deliveryDay"
-                                                        type="date"
-                                                        value-format="yyyy-MM-dd"
-                                                        :picker-options="{ disabledDate: val => holidays.indexOf(moment(val).format('YYYY-MM-DD')) !== -1 }"></el-date-picker>-->
-                    <el-date-picker v-model="order.deliveryDay"
-                                    type="date"
-                                    value-format="yyyy-MM-dd"></el-date-picker>
-                  </fg-input>
-                </ValidationProvider>
+                <fg-input type="text"
+                          name="deliveryDay">
+                  <!--                    <el-date-picker v-model="order.deliveryDay"
+                                                      type="date"
+                                                      value-format="yyyy-MM-dd"
+                                                      :picker-options="{ disabledDate: val => holidays.indexOf(moment(val).format('YYYY-MM-DD')) !== -1 }"></el-date-picker>-->
+                  <el-date-picker v-model="order.deliveryDay"
+                                  type="date"
+                                  value-format="yyyy-MM-dd"></el-date-picker>
+                </fg-input>
               </div>
             </div>
 
             <div class="row">
               <label class="col-sm-3 col-form-label">送貨時段</label>
               <div class="col-sm-7">
-                <ValidationProvider name="area" rules="required" v-slot="{ passed, failed }">
-                  <fg-input :error="failed ? '不能留空': null"
-                            :hasSuccess="passed"
-                            name="area">
-                    <el-select class="select-normal"
-                               size="large"
-                               placeholder=""
-                               v-model="order.deliveryTimeSlot">
-                      <el-option v-for="option in getTimeSlot"
-                                 :value="option"
-                                 :label="option"
-                                 :key="option">
-                      </el-option>
-                    </el-select>
-                  </fg-input>
-                </ValidationProvider>
+                <fg-input name="area">
+                  <el-select class="select-normal"
+                             size="large"
+                             placeholder=""
+                             v-model="order.deliveryTimeSlot">
+                    <el-option v-for="option in getTimeSlot"
+                               :value="option"
+                               :label="option"
+                               :key="option">
+                    </el-option>
+                  </el-select>
+                </fg-input>
               </div>
             </div>
 
@@ -415,44 +403,40 @@
             <div class="row">
               <label class="col-sm-3 col-form-label">18區</label>
               <div class="col-sm-7">
-                <ValidationProvider name="district" rules="required" v-slot="{ passed, failed }">
-                  <fg-input :error="failed ? '不能留空': null"
-                            :hasSuccess="passed"
-                            name="district">
-                    <el-select class="select-normal"
-                               size="large"
-                               placeholder=""
-                               v-model="order.district">
-                      <el-option v-for="option in getDistricts"
-                                 :value="option"
-                                 :label="option"
-                                 :key="option">
-                      </el-option>
-                    </el-select>
-                  </fg-input>
-                </ValidationProvider>
+                <fg-input :error="failed ? '不能留空': null"
+                          :hasSuccess="passed"
+                          name="district">
+                  <el-select class="select-normal"
+                             size="large"
+                             placeholder=""
+                             v-model="order.district">
+                    <el-option v-for="option in getDistricts"
+                               :value="option"
+                               :label="option"
+                               :key="option">
+                    </el-option>
+                  </el-select>
+                </fg-input>
               </div>
             </div>
 
             <div class="row">
               <label class="col-sm-3 col-form-label">地區</label>
               <div class="col-sm-7">
-                <ValidationProvider name="subDistrict" rules="required" v-slot="{ passed, failed }">
-                  <fg-input :error="failed ? '不能留空': null"
-                            :hasSuccess="passed"
-                            name="subDistrict">
-                    <el-select class="select-normal"
-                               size="large"
-                               placeholder=""
-                               v-model="order.subDistrict">
-                      <el-option v-for="option in getSubDistricts"
-                                 :value="option"
-                                 :label="option"
-                                 :key="option">
-                      </el-option>
-                    </el-select>
-                  </fg-input>
-                </ValidationProvider>
+                <fg-input :error="failed ? '不能留空': null"
+                          :hasSuccess="passed"
+                          name="subDistrict">
+                  <el-select class="select-normal"
+                             size="large"
+                             placeholder=""
+                             v-model="order.subDistrict">
+                    <el-option v-for="option in getSubDistricts"
+                               :value="option"
+                               :label="option"
+                               :key="option">
+                    </el-option>
+                  </el-select>
+                </fg-input>
               </div>
             </div>
 
@@ -463,14 +447,12 @@
                 </div>
               </label>
               <div class="col-sm-7">
-                <ValidationProvider name="fullAddress" rules="required" v-slot="{ passed, failed }">
-                  <fg-input type="text"
-                            :error="failed ? '不能留空': null"
-                            :hasSuccess="passed"
-                            name="fullAddress"
-                            v-model="order.fullAddress">
-                  </fg-input>
-                </ValidationProvider>
+                <fg-input type="text"
+                          :error="failed ? '不能留空': null"
+                          :hasSuccess="passed"
+                          name="fullAddress"
+                          v-model="order.fullAddress">
+                </fg-input>
               </div>
             </div>
 
